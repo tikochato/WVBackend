@@ -19,7 +19,8 @@ exports.create = (req, res) => {
     // Save Article in the database
     article.save()
     .then(data => {
-        res.send(data);
+      data.message = 'saved';
+      res.send(data);
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while creating the Article."
